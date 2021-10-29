@@ -23,7 +23,7 @@ var nextGreaterElement = function(nums1, nums2) {
     stack.push(num)
   }
 
-  return nums1.map((item, idx) => map.get(nums1[idx]))
+  return nums1.map((_, idx) => map.get(nums1[idx]))
 }
 
 // bad
