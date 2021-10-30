@@ -16,7 +16,6 @@ class SortTest {
       this.data.push(Math.floor(Math.random() * this.randomMax))
     }
     this.rightDataStr = this.data.sort((a, b) => a - b).toString()
-    return this.data
   }
 
   // start sort
