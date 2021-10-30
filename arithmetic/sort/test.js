@@ -29,7 +29,12 @@ class SortTest {
     }
     res.sort((a, b) => a.time - b.time)
     for (let i = 0; i < res.length; i++) {
-      const diff = i > 0 ? '+' + `${res[i].time - res[i - 1].time}` : 0
+      let diff
+      if (res[i].statu === 'FAIL') {
+        diff = '-'
+      } else {
+        diff = i > 0 ? '+' + `${res[i].time - res[i - 1].time}` : 0
+      }
       res[i].diff = diff
     }
     console.table(res)
@@ -49,7 +54,8 @@ class SortTest {
       info.statu = 'SUCCESS'
       info.time = Number(`${end - start}`)
     } else {
-      info.status = 'FAIL'
+      info.statu = 'FAIL'
+      info.time = Infinity
     }
     return info
   }
