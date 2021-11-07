@@ -1,4 +1,3 @@
-
 // n = 4, m = 4
 
 // [ 1, 2, 3, 4 ],
@@ -14,7 +13,6 @@
 // [ 3, 5, 8, 13 ],
 // [ 4, 9, 12, 14 ],
 // [ 10, 11, 15, 16 ]
-
 
 function snekeMatrix(n, m) {
   const matrix = new Array(n).fill([]).map(_ => new Array(m).fill(1))
