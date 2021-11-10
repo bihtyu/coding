@@ -15,7 +15,7 @@ class SortTest {
     while (this.total--) {
       this.data.push(Math.floor(Math.random() * this.randomMax))
     }
-    this.rightDataStr = this.data.sort((a, b) => a - b).toString()
+    this.rightDataStr = [...this.data].sort((a, b) => a - b).toString()
   }
 
   // start sort
@@ -47,14 +47,16 @@ class SortTest {
       time: null
     }
     const start = Date.now()
-    const currentData = fn(this.data)
+    const data = [...this.data]
+    const currentData = fn(data)
+    console.log(currentData)
     if (currentData.toString() === this.rightDataStr) {
       const end = Date.now()
       info.statu = 'SUCCESS'
       info.time = Number(`${end - start}`)
     } else {
       info.statu = 'FAIL'
-      info.time = Infinity
+      info.time = '-'
     }
     return info
   }

@@ -1,6 +1,8 @@
 /**
- * 快速排序，使用分治法来把一个串（list）分为两个子串（sub-lists）；
- * O(n*logn)， O(n*logn)， 不稳定
+ * 快速排序
+ * 使用分治法来把一个串（list）分为两个子串（sub-lists）
+ * O(n*logn)， O(n*logn)
+ * 不稳定
  * @param {*} arr 
  * @returns
  */
@@ -13,8 +15,8 @@ function sort_quick_in_place(arr, left, right) {
   let partitionIndex
   if (left < right) {
     partitionIndex = partition(arr, left, right)
-    partitionIndex - 1 > left  && sort_quick_in_place(arr, left, partitionIndex - 1)
-    partitionIndex + 1 < right && sort_quick_in_place(arr, partitionIndex + 1, right)
+    sort_quick_in_place(arr, left, partitionIndex - 1)
+    sort_quick_in_place(arr, partitionIndex + 1, right)
   }
 
   return arr
@@ -34,7 +36,7 @@ function partition(arr, left, right) {
       left++
       right--
     }
-    return left
+    return left - 1
   }
 }
 
