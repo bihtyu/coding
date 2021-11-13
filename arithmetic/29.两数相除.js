@@ -10,7 +10,6 @@
  * @param {number} divisor
  * @return {number}
  */
-// timeout -_-
 var divide = function(dividend, divisor) {
   const isNegative_1 = dividend < 0
   const isNegative_2 = divisor < 0
@@ -21,21 +20,23 @@ var divide = function(dividend, divisor) {
   divisor = Math.abs(divisor)
 
   let target = 0
+  let sum = 0 // 累加值
   while(dividend >= divisor) {
     target++
     dividend -= divisor
+    sum += divisor
+
+    if (dividend > sum) {
+      dividend -= sum
+      sum += sum
+      target += target
+    }
   }
 
   target = (isNegative_1 && !isNegative_2) || (!isNegative_1 && isNegative_2) ? -target : target
 
-  if (target < MIN) {
-    return MIN
-  } else if (target > MAX) {
-    return MAX
-  }
-
+  if (target < MIN) return MIN
+  if (target > MAX) return MAX
   return target
-};
-
-console.log(divide(-2147483648, 2)) // timeout
+}
 // @lc code=end
