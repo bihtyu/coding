@@ -49,7 +49,6 @@ class SortTest {
     const start = Date.now()
     const data = [...this.data]
     const currentData = fn(data)
-    console.log(currentData)
     if (currentData.toString() === this.rightDataStr) {
       const end = Date.now()
       info.statu = 'SUCCESS'

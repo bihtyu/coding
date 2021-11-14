@@ -20,7 +20,7 @@ function snekeMatrix(n, m) {
   let row = 0, col = 1, num = 2, goDown = true
 
   while(num < total) {
-    matrix[row][col] = num
+    matrix[row][col] = num++
 
     if (goDown) {
       // 斜对角向下
@@ -53,12 +53,9 @@ function snekeMatrix(n, m) {
         goDown = true
       }
     }
-
-    num++
   }
 
   matrix[n - 1][m - 1] = total
-
   return matrix
 }
 

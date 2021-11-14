@@ -8,9 +8,8 @@
  */
 // 1. 原地修改 - good
 function sort_quick_in_place(arr, left, right) {
-  const len = arr.length
-  left = left || 0
-  right = right || len - 1
+  left = typeof left === 'number' ? left : 0
+  right = typeof right === 'number' ? right : arr.length - 1
 
   let partitionIndex
   if (left < right) {
@@ -23,26 +22,24 @@ function sort_quick_in_place(arr, left, right) {
 }
 
 function partition(arr, left, right) {
-  const pivot = arr[(left + right) >> 1]
-  while(left <= right) {
-    while(arr[left] < pivot) {
-      left++
-    }
-    while(arr[right] > pivot) {
+  const key = arr[left]
+  while (left < right) {
+    while (left < right && arr[right] >= key) {
       right--
     }
-    if (left <= right) {
-      [arr[left], arr[right]] = [arr[right], arr[left]]
+    arr[left] = arr[right]
+    while (left < right && arr[left] <= key) {
       left++
-      right--
     }
-    return left - 1
+    arr[right] = arr[left];
   }
+  arr[left] = key
+  return left
 }
 
+// console.log(sort_quick_in_place([1, 2, 5, 3, 4, 5]))
+
 // 2. 递归 - bad
-// 数据量大时（约 arr.length > 10000），调用栈溢出
-// FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
 function sort_quick_recursion(arr) {
   if (arr.length <= 1) return arr
 
