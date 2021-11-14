@@ -23,21 +23,22 @@ function sort_quick_in_place(arr, left, right) {
 
 function partition(arr, left, right) {
   const key = arr[left]
-  while (left < right) {
-    while (left < right && arr[right] >= key) {
+
+  while(left < right) {
+    while(left < right && arr[right] >= key) {
       right--
     }
     arr[left] = arr[right]
-    while (left < right && arr[left] <= key) {
+
+    while(left < right && arr[left] <= key) {
       left++
     }
-    arr[right] = arr[left];
+    arr[right] = arr[left]
   }
+
   arr[left] = key
   return left
 }
-
-// console.log(sort_quick_in_place([1, 2, 5, 3, 4, 5]))
 
 // 2. 递归 - bad
 function sort_quick_recursion(arr) {
