@@ -22,21 +22,25 @@ function sort_quick_in_place(arr, left, right) {
 }
 
 function partition(arr, left, right) {
-  const key = arr[left]
+  const basic = arr[left]
 
   while(left < right) {
-    while(left < right && arr[right] >= key) {
+    // 把基数后面且比基数【小】的换到前面去
+    while(left < right && arr[right] >= basic) {
       right--
     }
     arr[left] = arr[right]
 
-    while(left < right && arr[left] <= key) {
+    // 把基数前面且比基数【大】的换到后面去
+    while(left < right && arr[left] <= basic) {
       left++
     }
     arr[right] = arr[left]
   }
 
-  arr[left] = key
+  // 重新赋值基数
+  arr[left] = basic
+
   return left
 }
 

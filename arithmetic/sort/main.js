@@ -9,7 +9,7 @@ const { sort_quick_in_place, sort_quick_recursion } = require('./func/sort_quick
 const { sort_counting } = require('./func/sort_counting')
 
 // test
-const sortFns = [sort_api, sort_quick_in_place]
+const sortFns = [sort_api, sort_counting]
 const myTest = new SortTest(sortFns, randomRang, arrTotal)
 
 myTest.start()
