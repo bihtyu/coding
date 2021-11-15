@@ -1,5 +1,5 @@
 const { SortTest } = require('./test.js')
-const randomRang = [1, 10000 * 1]
+const randomRange = [1, 10000 * 1]
 const arrTotal = 10000 * 100
 
 const { sort_api } = require('./func/sort_api')
@@ -10,6 +10,6 @@ const { sort_counting } = require('./func/sort_counting')
 
 // test
 const sortFns = [sort_api, sort_counting]
-const myTest = new SortTest(sortFns, randomRang, arrTotal)
+const myTest = new SortTest(sortFns, randomRange, arrTotal)
 
 myTest.start()
