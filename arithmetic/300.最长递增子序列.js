@@ -18,7 +18,7 @@ var lengthOfLIS = function(nums) {
     if (num > top) {
       stack.push(num)
     } else {
-      stack = insert(stack, num)
+      insert(stack, num)
     }
   }
 
@@ -39,8 +39,6 @@ var insert = function(stack, num) {
   }
 
   stack[left] = num
-
-  return stack
 }
 // @lc code=end
 
