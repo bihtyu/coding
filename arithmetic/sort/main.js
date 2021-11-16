@@ -1,6 +1,6 @@
 const { SortTest } = require('./test.js')
 const randomRange = [1, 10000 * 1]
-const arrTotal = 10000 * 1
+const arrTotal = 10000 * 10
 
 const { sort_api } = require('./func/sort_api')
 const { sort_bubble } = require('./func/sort_bubble')
