@@ -17,29 +17,45 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
- var detectCycle = function(head) {
-  if (!head) return null
+// hash - memory - O(n)
+// var detectCycle = function(head) {
+//   if (!head) return null
 
-  const wm = new WeakMap()
-  let target = null
+//   const wm = new WeakMap()
+//   let target = null
+//   let cur = head
 
-  let fast = head
+//   while(cur) {
+//     if (wm.get(cur)) {
+//       target = cur
+//       break
+//     }
+//     wm.set(cur, cur)
+//     cur = cur.next
+//   }
+
+//   return target
+// }
+
+// fast and slow point - memory - O(1)
+var detectCycle = function(head) {
   let slow = head
-
-  fast = fast.next
-  fast = fast ? fast.next : fast
-
-  while(slow && fast) {
-    if (wm.get(slow)) {
-      target = slow
-      break
-    }
-    wm.set(slow, slow)
-
+  let fast = head
+  
+  while(fast && fast.next) {
     slow = slow.next
-    fast = fast.next
+    fast = fast.next.next
+
+    if (slow === fast) {
+      let cur = head
+      while(cur !== slow) {
+        cur = cur.next
+        slow = slow.next
+      }
+      return cur
+    }
   }
 
-  return target
+  return null
 }
 // @lc code=end
