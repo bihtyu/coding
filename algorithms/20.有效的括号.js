@@ -20,9 +20,9 @@ var isValid = function(s) {
   const stack = []
   for (const char of s) {
     if (hash[char]) {
-      stack.push(char)
+      stack.push(hash[char])
     } else {
-      if (hash[char] !== stack.pop()) {
+      if (char !== stack.pop()) {
         return false
       }
     }
