@@ -8,7 +8,6 @@
 /**
  * @param {number[][]} grid
  * @return {number}
- *
  */
 var getMaximumGold = function (grid) {
   const row = grid.length
